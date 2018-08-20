@@ -93,8 +93,6 @@ public class spielEingabe extends Thread{
 	private void anzeigeEinstellen() {
 		ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		anzeige = ge.getScreenDevices();
-		if (anzeige.length > 1)
-			zweiAnzeigen = true;
 	}
 
 	/**

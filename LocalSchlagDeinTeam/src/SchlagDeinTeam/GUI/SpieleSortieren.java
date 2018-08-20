@@ -5,13 +5,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -77,7 +75,7 @@ public class SpieleSortieren {
 		spiele.setBackground(new Color(50,50,50));
 		spiele.setVisible(true);
 		
-		felderEinf¸gen();
+		felderEinf√ºgen();
 		
 		JButton speichern =new JButton("Speichern");
 		speichern.setSize((int)(pn.getWidth()*0.1),(int)(pn.getHeight()*0.05));
@@ -89,7 +87,7 @@ public class SpieleSortieren {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				nummerierung‹berpr¸fen();
+				nummerierung√úberpr√ºfen();
 				frm.setVisible(false);
 				new WindowSpielleiter (bi, anzeige);
 				frm.dispose();
@@ -108,13 +106,11 @@ public class SpieleSortieren {
 	/**
 	 * F√ºgt die Felder zum sortieren ein
 	 */
-	private void felderEinf¸gen() {
+	private void felderEinf√ºgen() {
 		Dimension nummerSize = new Dimension ((int)(spiele.getWidth()*0.05),(int)(spiele.getWidth()*0.05));
 		Dimension textSize = new Dimension ((int)(spiele.getWidth()*0.4),(int)(spiele.getHeight()/bi.anzSpiele() *0.85));
 		nummern = new JTextField [bi.anzSpiele()];
 		titel = new JTextArea [bi.anzSpiele()];
-		logos = new JLabel [bi.anzSpiele()];
-		
 		beschreibung = new JTextArea [bi.anzSpiele()];
 		ArrayList <MiniSpiel> spielListe = bi.getSpiele();
 		Color spielFarbe = null;
@@ -135,11 +131,8 @@ public class SpieleSortieren {
 			beschreibung[i].setFont(f);
 			
 			nummern[i].setCaretColor(Color.WHITE);
-			titel[i].setCaretColor(Color.WHITE);
+			titel[i].setCaretColor(Color.BLACK);
 			beschreibung[i].setCaretColor(Color.WHITE);
-			
-			logos[i].setIcon(new ImageIcon (new ImageIcon(SpieleSortieren.class.getResource("/SchlagDeinTeam/GUI/Bilder/Schlag_Dein_Team_Logo.png")).getImage().getScaledInstance((int)(titel[i].getBounds().getWidth()*1.5), (int)(titel[i].getBounds().getHeight()*1.5),Image.SCALE_DEFAULT)));
-			logos[i].setBounds((int)(titel[i].getBounds().getMinX()-titel[i].getBounds().getWidth()*0.25),(int)(titel[i].getBounds().getMinY()-titel[i].getBounds().getHeight()*0.25),(int)(logos[i].getIcon().getIconWidth()),(int)(logos[i].getIcon().getIconHeight()));
 			
 			if(spielListe.get(i).getClass().equals(EinzelSpiel.class)) {
 				EinzelSpiel temp = (EinzelSpiel)spielListe.get(i);
@@ -164,7 +157,6 @@ public class SpieleSortieren {
 			titel[i].setForeground(Color.WHITE);
 			beschreibung[i].setForeground(Color.WHITE);
 			pn.add(nummern[i]);
-			pn.add(logos[i]);
 			pn.add(titel[i]);
 			pn.add(beschreibung[i]);
 		}
@@ -173,8 +165,8 @@ public class SpieleSortieren {
 	/**
 	 * √úberpr√ºft, ob auschlie√ülich g√ºltige Zahlen eingegeben wurden
 	 */
-	private void nummerierung‹berpr¸fen() {
-		int [] zahlen‹berpr¸fer = new int [nummern.length];
+	private void nummerierung√úberpr√ºfen() {
+		int [] zahlen√úberpr√ºfer = new int [nummern.length];
 		int [] zahlen = new int [nummern.length];
 		
 		for (int i = 0; i< nummern.length; i++) {
@@ -188,12 +180,12 @@ public class SpieleSortieren {
 				JOptionPane.showMessageDialog(frm, nummern[i].getText() + " keine g√ºltige Zahl (1 bis " + nummern.length + " erlaub)", "Ung√ºltige Eingabe", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
-			else if (zahlen‹berpr¸fer[zahl-1]!=0) {
+			else if (zahlen√úberpr√ºfer[zahl-1]!=0) {
 				JOptionPane.showMessageDialog(frm, nummern[i].getText() + " bereits eingegeben", "Ung√ºltige Eingabe", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 			else {
-				zahlen‹berpr¸fer[zahl-1] = zahl; //Zahlen eintragen, wo welches Spiel steht
+				zahlen√úberpr√ºfer[zahl-1] = zahl; //Zahlen eintragen, wo welches Spiel steht
 				zahlen[zahl-1] = i;
 			}
 		}

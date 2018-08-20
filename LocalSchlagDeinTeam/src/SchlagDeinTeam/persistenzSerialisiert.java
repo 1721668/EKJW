@@ -14,24 +14,24 @@ import java.util.ArrayList;
 public class persistenzSerialisiert {
 	
 	/**
-	 * Öffnet eine Datei
+	 * ï¿½ffnet eine Datei
 	 * @param fullName Speicherort der Datei
-	 * @return Datei, welche geöffnet wurde
+	 * @return Datei, welche geï¿½ffnet wurde
 	 */
-	private File öffnen (String fullName) {
+	private File Ã¶ffnen (String fullName) {
 		File file = null;
 		file = new File ((String)(fullName + ".sdr"));
 		return file;
 	}
 	
 	/**
-	 * Lädt ein Objekt aus einer Datei
+	 * Lï¿½dt ein Objekt aus einer Datei
 	 * @param fullName voller Speicherort der Datei
 	 * @return Geladenes Objekt aus der Datei
 	 * @throws SdTException Fehlermeldung, wenn falsche Parameter eingegeben wurden
 	 */
 	public Object laden (String fullName) throws SdTException {
-		File file = öffnen(fullName);
+		File file = Ã¶ffnen(fullName);
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		Object objekt = null;
@@ -44,7 +44,7 @@ public class persistenzSerialisiert {
 		} catch (IOException e) {
 			throw new SdTException ("Ladefehler - Datei konnte nicht gelesen werden");
 		} catch (ClassNotFoundException e) {
-			throw new SdTException ("Ladefehler - Ungültige Speicherinformation");
+			throw new SdTException ("Ladefehler - Ungï¿½ltige Speicherinformation");
 		}finally {
 			try {
 				fis.close();
@@ -66,7 +66,7 @@ public class persistenzSerialisiert {
 	public void speichern (String fullName, Object object) throws SdTException {
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
-		File file = öffnen (fullName);
+		File file = Ã¶ffnen (fullName);
 		try {
 			fos = new FileOutputStream (file);
 			oos = new ObjectOutputStream (fos);
@@ -88,13 +88,13 @@ public class persistenzSerialisiert {
 	}
 	
 	/**
-	 * läft ein Objekt aus einer CSV Datei
+	 * lï¿½ft ein Objekt aus einer CSV Datei
 	 * @param fullName voller Speicherort, der ausgelesenwerden soll
 	 * @return geladenes Ojekt
 	 * @throws SdTException Fehlermeldung bei falschen Parametern
 	 */
 	public Object ladenCSV (String fullName) throws SdTException {
-		File file = öffnen(fullName);
+		File file = Ã¶ffnen(fullName);
 		FileInputStream fis = null;
 		DataInputStream dis = null;
 		Object objekt = null;
@@ -127,7 +127,7 @@ public class persistenzSerialisiert {
 	public void speichernCSV (String fullName, ArrayList<String> object) throws SdTException {
 		DataOutputStream dos = null;
 		FileOutputStream fos = null;
-		File file = öffnen (fullName);
+		File file = Ã¶ffnen (fullName);
 		StringBuilder liste = new StringBuilder();
 		for (String t : object) {
 			String[] person = t.split(";");

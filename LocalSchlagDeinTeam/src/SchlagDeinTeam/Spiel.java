@@ -46,7 +46,7 @@ public class Spiel implements Serializable, bedienerInterface{
 	@Override
 	public void setErgebnisMiniSpiel(int team1, int team2) throws SdTException {
 		aktuellesSpiel.setErgebnis(new int [] {team1,team2});
-		setNächstesSpiel();
+		setNÃ¤chstesSpiel();
 	}
 
 	@Override
@@ -54,10 +54,10 @@ public class Spiel implements Serializable, bedienerInterface{
 		return runde;
 	}
 	/**
-	 * Legt atomatisch das nächste Spiel fest
+	 * Legt atomatisch das nï¿½chste Spiel fest
 	 * @throws SdTException
 	 */
-	private void setNächstesSpiel() throws SdTException {
+	private void setNÃ¤chstesSpiel() throws SdTException {
 		if (aktuellesSpiel.getErgebnis() == null) {
 			throw new SdTException("Ergebnis noch nicht eingetragen");
 		}
