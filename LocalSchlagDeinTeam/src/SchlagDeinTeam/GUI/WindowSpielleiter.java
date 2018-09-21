@@ -104,6 +104,14 @@ public class WindowSpielleiter extends Thread{
 		punkteAnzeige.setBackground(Color.LIGHT_GRAY);
 		punkteAnzeige.setVisible(true);
 		
+		JLabel temp = new JLabel();
+		temp.setSize(punkteAnzeige.getBounds().getSize());
+		temp.setIcon(new ImageIcon (new ImageIcon(WindowSpielleiter.class.getResource("/SchlagDeinTeam/GUI/Bilder/Schlag_Dein_Team_Logo.png")).getImage().getScaledInstance((int)punkteAnzeige.getWidth(), (int)punkteAnzeige.getHeight(), Image.SCALE_DEFAULT)));
+		temp.setOpaque(false);
+		
+		punkteAnzeige.add(temp);
+		punkteAnzeige.setOpaque(false);
+		
 		spielSteuerung.setLayout(null);
 		frm.pack();
 		frm.setExtendedState(JFrame.MAXIMIZED_BOTH);

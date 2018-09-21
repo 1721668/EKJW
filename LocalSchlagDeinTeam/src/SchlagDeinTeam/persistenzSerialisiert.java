@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class persistenzSerialisiert {
 	
 	/**
-	 * �ffnet eine Datei
+	 * Öffnet eine Datei
 	 * @param fullName Speicherort der Datei
 	 * @return Datei, welche ge�ffnet wurde
 	 */
